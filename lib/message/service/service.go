@@ -11,7 +11,9 @@ type Service interface {
 }
 
 func New(r repo.Repo) Service {
-	return new(messageService)
+	ms := new(messageService)
+	ms.repo = r
+	return ms
 }
 
 type messageService struct {
